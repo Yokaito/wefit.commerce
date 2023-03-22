@@ -1,6 +1,6 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
-import theme from "@/styles/theme";
+import theme from '@/styles/theme';
 
 export const ModernNormalize = css`
   /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
@@ -80,7 +80,7 @@ export const ModernNormalize = css`
   samp,
   pre {
     font-family: ${theme.text.family.primary}, ui-monospace, SFMono-Regular,
-      Consolas, "Liberation Mono", Menlo, monospace; /* 1 */
+      Consolas, 'Liberation Mono', Menlo, monospace; /* 1 */
     font-size: 1em; /* 2 */
   }
 
@@ -143,7 +143,7 @@ export const ModernNormalize = css`
   select,
   textarea {
     font-family: ${theme.text.family.primary}, ui-monospace, SFMono-Regular,
-      Consolas, "Liberation Mono", Menlo, monospace; /* 1 */
+      Consolas, 'Liberation Mono', Menlo, monospace; /* 1 */
     font-size: 100%; /* 1 */
     line-height: 1.15; /* 1 */
     margin: 0; /* 2 */
@@ -165,9 +165,9 @@ export const ModernNormalize = css`
   */
 
   button,
-  [type="button"],
-  [type="reset"],
-  [type="submit"] {
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
     -webkit-appearance: button;
   }
 
@@ -227,7 +227,7 @@ export const ModernNormalize = css`
   2. Correct the outline style in Safari.
   */
 
-  [type="search"] {
+  [type='search'] {
     -webkit-appearance: textfield; /* 1 */
     outline-offset: -2px; /* 2 */
   }

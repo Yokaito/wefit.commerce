@@ -1,6 +1,6 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
-import theme from "@/styles/theme";
+import theme from '@/styles/theme';
 
 export const Typography = css`
   /* Codeby Fonts */
@@ -8,7 +8,7 @@ export const Typography = css`
   body,
   html {
     font-family: ${theme.text.family.primary}, ui-monospace, SFMono-Regular,
-      Consolas, "Liberation Mono", Menlo, monospace;
+      Consolas, 'Liberation Mono', Menlo, monospace;
     font-size: 16px;
 
     letter-spacing: 0.01em;
