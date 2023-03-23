@@ -14,7 +14,7 @@ export const ProductCardWrapper = styled.div`
   gap: 8px;
 
   @media ${({ theme }) => theme.devices.notebook} {
-    min-width: 305px;
+    min-width: 309.33px;
   }
 `;
 
