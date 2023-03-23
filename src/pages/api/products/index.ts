@@ -7,5 +7,7 @@ export default function handler(
     products: typeof products;
   }>,
 ) {
-  res.status(200).json({ products: products });
+  return setTimeout(() => {
+    res.status(200).json({ products });
+  }, 1000);
 }

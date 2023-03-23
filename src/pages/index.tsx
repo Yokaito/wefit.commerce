@@ -1,9 +1,16 @@
 import Head from 'next/head';
-import { Inter } from 'next/font/google';
+import { useQuery } from '@tanstack/react-query';
 
-const inter = Inter({ subsets: ['latin'] });
+import { ProductCard, ProductGrid } from '@/components/product';
+import { getProducts } from '@/sdk/services/product';
+import Loading from '@/components/ui/Loading';
 
 export default function Home() {
+  const { data, isLoading } = useQuery({
+    queryKey: ['products'],
+    queryFn: getProducts,
+  });
+
   return (
     <>
       <Head>
@@ -12,7 +19,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>Guilherme</main>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <ProductGrid>
+          {data?.products?.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </ProductGrid>
+      )}
     </>
   );
 }

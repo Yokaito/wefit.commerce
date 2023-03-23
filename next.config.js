@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["wefit-react-web-test.s3.amazonaws.com"],
+    domains: ['wefit-react-web-test.s3.amazonaws.com'],
   },
   compiler: {
     styledComponents: true,
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
 };
 
 module.exports = nextConfig;

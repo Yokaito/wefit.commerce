@@ -1,11 +1,12 @@
 const breakpoints = {
   mobile: 320,
   tablet: 768,
-  notebook: 1024,
+  notebook: 960,
   desktop: 1440,
 } as const;
 
 export const theme = {
+  // Colors
   colors: {
     primary: {
       main: '#009EDD',
@@ -16,6 +17,8 @@ export const theme = {
     text: {
       100: '#2F2E41',
       200: '#999999',
+      300: '#333333',
+      400: '#3f3d56',
     },
     auxiliar: {
       100: '#D9D9D9',
@@ -27,10 +30,38 @@ export const theme = {
       white: '#FFFFFF',
     },
   },
+
+  // Fonts
   text: {
+    size: {
+      0: '12px',
+      1: '14px',
+      2: '16px',
+      3: '18px',
+      4: '20px',
+      5: '24px',
+    },
     family: {
       primary: 'Open Sans, sans-serif',
     },
+    weight: {
+      light: 300,
+      regular: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
+      extrabold: 800,
+      black: 900,
+    },
+  },
+
+  // Index
+  zIndex: {
+    below: -1,
+    default: 0,
+    top: 1,
+    high: 2,
+    highest: 3,
   },
 
   // Breakpoints
