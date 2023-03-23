@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { products } from '@/assets/server';
+import { products } from '@/sdk/server/server';
 
 export default function handler(
   req: NextApiRequest,
