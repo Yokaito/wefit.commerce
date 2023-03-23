@@ -29,7 +29,9 @@ export const MiniCart = () => {
             <tr>
               <th align="left">Produto</th>
               <th align="left">QTD</th>
-              <th align="left">SubTotal</th>
+              <th align="left" style={{ width: '25%' }}>
+                SubTotal
+              </th>
               <th align="right"></th>
             </tr>
           </thead>

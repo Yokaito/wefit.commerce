@@ -34,6 +34,7 @@ export const MinicartContent = styled.div`
 export const MinicartDivider = styled.div`
   background-color: ${({ theme }) => theme.colors.text[200]};
   height: 1px;
+  margin-right: 16px;
 `;
 
 export const MinicartBottom = styled.div`
@@ -42,6 +43,7 @@ export const MinicartBottom = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-right: 16px;
 
   @media (${({ theme }) => theme.devices.notebook}) {
     flex-direction: row-reverse;

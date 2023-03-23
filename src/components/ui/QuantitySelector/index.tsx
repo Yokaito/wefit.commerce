@@ -9,10 +9,18 @@ export const QuantitySelector = ({
   removeQuantity,
   inputHandler,
   quantity,
+  minQuantity,
+  maxQuantity,
 }: T.QuantitySelectorProps) => {
+  const minusDisabled = quantity <= minQuantity;
+  const plusDisabled = quantity >= maxQuantity;
+
   return (
     <S.QuantitySelectorWrapper>
-      <S.QuantitySelectorButton onClick={removeQuantity}>
+      <S.QuantitySelectorButton
+        onClick={removeQuantity}
+        disabled={minusDisabled}
+      >
         <Image
           src={MinusQuantityIcon.src}
           width={18}
@@ -26,7 +34,7 @@ export const QuantitySelector = ({
         value={quantity}
         onChange={inputHandler}
       />
-      <S.QuantitySelectorButton onClick={addQuantity}>
+      <S.QuantitySelectorButton onClick={addQuantity} disabled={plusDisabled}>
         <Image
           src={PlusQuantityIcon.src}
           width={18}

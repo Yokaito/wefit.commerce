@@ -18,6 +18,14 @@ export const QuantitySelectorInput = styled.input`
 `;
 
 export const QuantitySelectorButton = styled.button`
+  &:disabled {
+    opacity: 0.5;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
   &:hover {
     cursor: pointer;
   }

@@ -62,6 +62,8 @@ export const ProductCardCart = ({
             removeQuantity={() => handleButtonQuantity(false)}
             inputHandler={handleInputQuantity}
             quantity={quantity}
+            maxQuantity={100}
+            minQuantity={1}
           />
         </S.ProductCartQuantityTable>
         <S.ProductCartSubTotalTable>
@@ -105,6 +107,8 @@ export const ProductCardCart = ({
             removeQuantity={() => handleButtonQuantity(false)}
             inputHandler={handleInputQuantity}
             quantity={quantity}
+            maxQuantity={100}
+            minQuantity={1}
           />
           <S.ProductCartValuesWrapper>
             <S.ProductCartValuesAuxiliar>SubTotal</S.ProductCartValuesAuxiliar>

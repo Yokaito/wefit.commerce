@@ -3,4 +3,6 @@ export type QuantitySelectorProps = {
   addQuantity: () => void;
   inputHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
   quantity: number;
+  minQuantity: number;
+  maxQuantity: number;
 };
