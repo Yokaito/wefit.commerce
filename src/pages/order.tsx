@@ -1,4 +1,4 @@
-import OrderPlaced from '@/components/OrderPlaced';
+import Feedback from '@/components/sections/Feedback';
 import { useMiniCart } from '@/sdk/minicart';
 import Head from 'next/head';
 import { useEffect } from 'react';
@@ -18,7 +18,7 @@ export const Order = () => {
       <Head>
         <title>WeFit | OrderPlaced</title>
       </Head>
-      <OrderPlaced />
+      <Feedback variant="orderSuccess" />
     </>
   );
 };

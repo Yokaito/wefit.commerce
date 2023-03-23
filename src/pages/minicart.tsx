@@ -1,4 +1,4 @@
-import EmptyCart from '@/components/EmptyCart';
+import Feedback from '@/components/sections/Feedback';
 import MiniCart from '@/components/Minicart';
 import { useMiniCart } from '@/sdk/minicart';
 import Head from 'next/head';
@@ -15,7 +15,7 @@ export const Minicart = () => {
       <Head>
         <title>WeFit | Minicart</title>
       </Head>
-      {hasProducts ? <MiniCart /> : <EmptyCart />}
+      {hasProducts ? <MiniCart /> : <Feedback variant="emptyCart" />}
     </>
   );
 };
