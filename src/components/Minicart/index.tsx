@@ -20,7 +20,7 @@ export const MiniCart = () => {
     <S.MinicartWrapper>
       <S.MinicartContent>
         {products.map((product) => (
-          <ProductCardCart key={product.id} product={product} />
+          <ProductCardCart key={product.id} product={product} variant="card" />
         ))}
       </S.MinicartContent>
       {(isNotebook || isDesktop) && (
@@ -35,7 +35,11 @@ export const MiniCart = () => {
           </thead>
           <tbody>
             {products.map((product) => (
-              <ProductCardCart key={product.id} product={product} />
+              <ProductCardCart
+                key={product.id}
+                product={product}
+                variant="table"
+              />
             ))}
           </tbody>
         </S.MinicartTable>

@@ -4,6 +4,7 @@ export const SectionWrapper = styled.section`
   &.LayoutMain {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   &.LayoutContent {

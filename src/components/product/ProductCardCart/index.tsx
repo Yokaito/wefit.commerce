@@ -8,7 +8,10 @@ import useMediaQuery from '@/sdk/hooks/useMediaQuery';
 import { QuantitySelector } from '@/components/ui';
 import { toast } from 'react-toastify';
 
-export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
+export const ProductCardCart = ({
+  product,
+  variant,
+}: T.ProductCardCartProps) => {
   const { image, title, id, price, quantity } = product;
   const formatter = usePriceFormatter();
   const unavailableNotifier = () =>
@@ -16,7 +19,6 @@ export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
   const {
     functions: { removeProduct, updateQuantity },
   } = useMiniCart();
-  const { isNotebook, isDesktop } = useMediaQuery();
 
   const handleButtonQuantity = (sum: boolean) => {
     if (sum && quantity >= 1) {
@@ -40,7 +42,7 @@ export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
     }
   };
 
-  if (isNotebook || isDesktop) {
+  if (variant === 'table') {
     return (
       <S.ProductCartTr>
         <S.ProductCartInfo>
