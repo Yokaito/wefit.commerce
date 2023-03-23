@@ -27,7 +27,7 @@ export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
     const value = event.target.value;
     const quantity = Number(value);
 
-    if (quantity > 0) {
+    if (quantity > 0 && quantity <= 100) {
       updateQuantity(id, quantity);
     }
   };

@@ -16,3 +16,9 @@ export const QuantitySelectorInput = styled.input`
   font-weight: ${({ theme }) => theme.text.weight.regular};
   color: ${({ theme }) => theme.colors.text[100]};
 `;
+
+export const QuantitySelectorButton = styled.button`
+  &:hover {
+    cursor: pointer;
+  }
+`;

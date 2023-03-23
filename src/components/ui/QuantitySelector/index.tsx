@@ -12,7 +12,7 @@ export const QuantitySelector = ({
 }: T.QuantitySelectorProps) => {
   return (
     <S.QuantitySelectorWrapper>
-      <button onClick={removeQuantity}>
+      <S.QuantitySelectorButton onClick={removeQuantity}>
         <Image
           src={MinusQuantityIcon.src}
           width={18}
@@ -20,13 +20,13 @@ export const QuantitySelector = ({
           priority
           alt="plus quantity"
         />
-      </button>
+      </S.QuantitySelectorButton>
       <S.QuantitySelectorInput
         type="text"
         value={quantity}
         onChange={inputHandler}
       />
-      <button onClick={addQuantity}>
+      <S.QuantitySelectorButton onClick={addQuantity}>
         <Image
           src={PlusQuantityIcon.src}
           width={18}
@@ -34,7 +34,7 @@ export const QuantitySelector = ({
           priority
           alt="plus quantity"
         />
-      </button>
+      </S.QuantitySelectorButton>
     </S.QuantitySelectorWrapper>
   );
 };
