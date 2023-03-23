@@ -6,17 +6,21 @@ import TrashIcon from '@/assets/images/trash.png';
 import { usePriceFormatter } from '@/sdk/product';
 import useMediaQuery from '@/sdk/hooks/useMediaQuery';
 import { QuantitySelector } from '@/components/ui';
+import { toast } from 'react-toastify';
 
 export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
   const { image, title, id, price, quantity } = product;
   const formatter = usePriceFormatter();
+  const unavailableNotifier = () =>
+    toast.warn('Produto não tem estoque suficiente');
   const {
     functions: { removeProduct, updateQuantity },
   } = useMiniCart();
   const { isNotebook, isDesktop } = useMediaQuery();
 
   const handleButtonQuantity = (sum: boolean) => {
-    if (sum && quantity >= 1 && quantity < 100) {
+    if (sum && quantity >= 1) {
+      if (quantity >= 100) return unavailableNotifier();
       updateQuantity(id, quantity + 1);
     } else if (!sum && quantity > 1 && quantity <= 100) {
       updateQuantity(id, quantity - 1);
@@ -27,8 +31,12 @@ export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
     const value = event.target.value;
     const quantity = Number(value);
 
-    if (quantity > 0 && quantity <= 100) {
-      updateQuantity(id, quantity);
+    if (quantity > 0) {
+      if (quantity <= 100) {
+        updateQuantity(id, quantity);
+      } else {
+        unavailableNotifier();
+      }
     }
   };
 

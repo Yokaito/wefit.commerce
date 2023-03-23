@@ -6,6 +6,7 @@ import {
   useState,
 } from 'react';
 import { Product } from '@/sdk/product';
+import { toast } from 'react-toastify';
 
 export interface ProductCart extends Product {
   quantity: number;
@@ -49,6 +50,9 @@ export const MinicartContext = createContext<MinicartContextType>(initialValue);
 
 export const MinicartProvider = ({ children }: PropsWithChildren) => {
   const [products, setProducts] = useState<ProductCart[]>([]);
+  const notifySuccess = () => toast.success('Produto adicionado ao carrinho!');
+  const notifyRemove = () => toast.success('Produto removido do carrinho!');
+  const notifyError = () => toast.error('Ocorreu um erro na aplicação');
 
   const totalProducts = products.length;
   const total = useMemo(() => {
@@ -58,18 +62,23 @@ export const MinicartProvider = ({ children }: PropsWithChildren) => {
   }, [products]);
 
   const handleAddProduct = (product: ProductCart) => {
-    const productIndex = products.findIndex((item) => item.id === product.id);
+    try {
+      const productIndex = products.findIndex((item) => item.id === product.id);
 
-    if (productIndex === -1) {
-      setProducts([...products, product]);
-    } else {
-      const updatedProducts = [...products];
-      updatedProducts[productIndex] = {
-        ...updatedProducts[productIndex],
-        quantity: updatedProducts[productIndex].quantity + product.quantity,
-      };
+      if (productIndex === -1) {
+        notifySuccess();
+        setProducts([...products, product]);
+      } else {
+        const updatedProducts = [...products];
+        updatedProducts[productIndex] = {
+          ...updatedProducts[productIndex],
+          quantity: updatedProducts[productIndex].quantity + product.quantity,
+        };
 
-      setProducts(updatedProducts);
+        setProducts(updatedProducts);
+      }
+    } catch {
+      notifyError();
     }
   };
 
@@ -78,13 +87,19 @@ export const MinicartProvider = ({ children }: PropsWithChildren) => {
   };
 
   const handleRemoveProduct = (productId: number) => {
-    const productIndex = products.findIndex((item) => item.id === productId);
+    try {
+      const productIndex = products.findIndex((item) => item.id === productId);
 
-    if (productIndex !== -1) {
-      const updatedProducts = [...products];
-      updatedProducts.splice(productIndex, 1);
+      if (productIndex !== -1) {
+        const updatedProducts = [...products];
+        updatedProducts.splice(productIndex, 1);
 
-      setProducts(updatedProducts);
+        setProducts(updatedProducts);
+      }
+
+      notifyRemove();
+    } catch {
+      notifyError();
     }
   };
 
