@@ -89,13 +89,8 @@ export const MinicartTable = styled.table`
     }
 
     tbody {
-      tr {
-        &:before {
-          content: '.';
-          color: transparent;
-          display: block;
-          height: 21px;
-        }
+      td {
+        padding-top: 21px;
       }
     }
   }

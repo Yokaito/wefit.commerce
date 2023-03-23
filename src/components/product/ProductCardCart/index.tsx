@@ -3,10 +3,9 @@ import * as S from './styles';
 import * as T from './types';
 import Image from 'next/image';
 import TrashIcon from '@/assets/images/trash.png';
-import PlusQuantityIcon from '@/assets/images/plus-quantity.png';
-import MinusQuantityIcon from '@/assets/images/minus-quantity.png';
 import { usePriceFormatter } from '@/sdk/product';
 import useMediaQuery from '@/sdk/hooks/useMediaQuery';
+import { QuantitySelector } from '@/components/ui';
 
 export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
   const { image, title, id, price, quantity } = product;
@@ -45,37 +44,16 @@ export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
           />
           <S.ProductCartInfoNameAndValue>
             <S.ProductCardCartName>{title}</S.ProductCardCartName>
-            <S.ProductCartValues>
-              {formatter(price * quantity)}
-            </S.ProductCartValues>
+            <S.ProductCartValues>{formatter(price)}</S.ProductCartValues>
           </S.ProductCartInfoNameAndValue>
         </S.ProductCartInfo>
         <S.ProductCartQuantityTable>
-          <S.ProductCartQuantityWrapper>
-            <button onClick={() => handleButtonQuantity(false)}>
-              <Image
-                src={MinusQuantityIcon.src}
-                width={18}
-                height={18}
-                priority
-                alt="plus quantity"
-              />
-            </button>
-            <S.ProductCartQuantityInput
-              type="text"
-              value={quantity}
-              onChange={handleInputQuantity}
-            />
-            <button onClick={() => handleButtonQuantity(true)}>
-              <Image
-                src={PlusQuantityIcon.src}
-                width={18}
-                height={18}
-                priority
-                alt="plus quantity"
-              />
-            </button>
-          </S.ProductCartQuantityWrapper>
+          <QuantitySelector
+            addQuantity={() => handleButtonQuantity(true)}
+            removeQuantity={() => handleButtonQuantity(false)}
+            inputHandler={handleInputQuantity}
+            quantity={quantity}
+          />
         </S.ProductCartQuantityTable>
         <S.ProductCartSubTotalTable>
           <S.ProductCartValues>
@@ -113,31 +91,12 @@ export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
           </button>
         </S.ProductCardName>
         <S.ProductCartFooterWrapper>
-          <S.ProductCartQuantityWrapper>
-            <S.ProductCartButton onClick={() => handleButtonQuantity(false)}>
-              <Image
-                src={MinusQuantityIcon.src}
-                width={18}
-                height={18}
-                priority
-                alt="plus quantity"
-              />
-            </S.ProductCartButton>
-            <S.ProductCartQuantityInput
-              type="text"
-              value={quantity}
-              onChange={handleInputQuantity}
-            />
-            <S.ProductCartButton onClick={() => handleButtonQuantity(true)}>
-              <Image
-                src={PlusQuantityIcon.src}
-                width={18}
-                height={18}
-                priority
-                alt="plus quantity"
-              />
-            </S.ProductCartButton>
-          </S.ProductCartQuantityWrapper>
+          <QuantitySelector
+            addQuantity={() => handleButtonQuantity(true)}
+            removeQuantity={() => handleButtonQuantity(false)}
+            inputHandler={handleInputQuantity}
+            quantity={quantity}
+          />
           <S.ProductCartValuesWrapper>
             <S.ProductCartValuesAuxiliar>SubTotal</S.ProductCartValuesAuxiliar>
             <S.ProductCartValues>
