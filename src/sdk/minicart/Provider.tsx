@@ -52,7 +52,8 @@ export const MinicartProvider = ({ children }: PropsWithChildren) => {
   const [products, setProducts] = useState<ProductCart[]>([]);
   const notifySuccess = () => toast.success('Produto adicionado ao carrinho!');
   const notifyRemove = () => toast.success('Produto removido do carrinho!');
-  const notifyWarning = () => toast.warning('Limite de 100 produtos atingido!');
+  const notifyWarning = () =>
+    toast.warning('Produto não tem estoque suficiente');
   const notifyError = () => toast.error('Ocorreu um erro na aplicação');
 
   const totalProducts = products.length;
