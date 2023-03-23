@@ -27,6 +27,7 @@ export const MinicartContent = styled.div`
   @media (${({ theme }) => theme.devices.notebook}) {
     overflow-y: hidden;
     height: 100%;
+    display: none;
   }
 `;
 
@@ -70,4 +71,32 @@ export const MinicartTotalValues = styled.span`
   font-weight: ${({ theme }) => theme.text.weight.bold};
   text-align: center;
   width: 130px;
+`;
+
+export const MinicartTable = styled.table`
+  display: none;
+
+  @media (${({ theme }) => theme.devices.notebook}) {
+    display: table;
+
+    thead {
+      th {
+        font-size: ${({ theme }) => theme.text.size[1]};
+        color: ${({ theme }) => theme.colors.text[200]};
+        font-weight: ${({ theme }) => theme.text.weight.bold};
+        text-transform: uppercase;
+      }
+    }
+
+    tbody {
+      tr {
+        &:before {
+          content: '.';
+          color: transparent;
+          display: block;
+          height: 21px;
+        }
+      }
+    }
+  }
 `;

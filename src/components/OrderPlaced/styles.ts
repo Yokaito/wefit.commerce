@@ -17,4 +17,10 @@ export const OrderPlacedTitle = styled.h2`
   font-weight: ${({ theme }) => theme.text.weight.bold};
   color: ${({ theme }) => theme.colors.text[100]};
   text-align: center;
+
+  @media ${({ theme }) => theme.devices.notebook} {
+    br {
+      display: none;
+    }
+  }
 `;
