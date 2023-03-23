@@ -16,9 +16,9 @@ export const ProductCardCart = ({ product }: T.ProductCardCartProps) => {
   const { isNotebook, isDesktop } = useMediaQuery();
 
   const handleButtonQuantity = (sum: boolean) => {
-    if (sum && quantity >= 1) {
+    if (sum && quantity >= 1 && quantity < 100) {
       updateQuantity(id, quantity + 1);
-    } else if (!sum && quantity > 1) {
+    } else if (!sum && quantity > 1 && quantity <= 100) {
       updateQuantity(id, quantity - 1);
     }
   };
