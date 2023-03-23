@@ -4,7 +4,6 @@ import * as T from './types';
 import Image from 'next/image';
 import TrashIcon from '@/assets/images/trash.png';
 import { usePriceFormatter } from '@/sdk/product';
-import useMediaQuery from '@/sdk/hooks/useMediaQuery';
 import { QuantitySelector } from '@/components/ui';
 import { toast } from 'react-toastify';
 

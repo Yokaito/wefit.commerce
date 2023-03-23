@@ -7,7 +7,7 @@ export const MinicartWrapper = styled.div`
   gap: 21px;
   background-color: ${({ theme }) => theme.colors.base.white};
   border-radius: 4px;
-  padding: 16px;
+  padding: 16px 0 16px 16px;
   width: 100%;
   height: calc(100vh - 84px);
 
@@ -22,7 +22,7 @@ export const MinicartContent = styled.div`
   flex-direction: column;
   overflow-y: auto;
   height: 84%;
-  gap: 16px;
+  gap: 21px;
 
   @media (${({ theme }) => theme.devices.notebook}) {
     overflow-y: hidden;
@@ -70,7 +70,7 @@ export const MinicartTotalValues = styled.span`
   color: ${({ theme }) => theme.colors.text[100]};
   font-weight: ${({ theme }) => theme.text.weight.bold};
   text-align: center;
-  width: 130px;
+  min-width: 130px;
 `;
 
 export const MinicartTable = styled.table`

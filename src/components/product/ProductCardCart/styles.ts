@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const ProductCardCartWrapper = styled.div`
   display: flex;
   gap: 16px;
+  padding-right: 16px;
 `;
 
 export const ProductCardCartImage = styled(Image)``;
